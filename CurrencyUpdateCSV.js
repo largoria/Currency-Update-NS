@@ -5,7 +5,7 @@ function CurrencyUpdateCSV() {
 
 	// add a header to the import
 	var primaryFileAsString = CSVlines();
-	nlapiLogExecution('DEBUG', 'scheduleCSVCurrencyUpdate', primaryFileAsString); 
+	//nlapiLogExecution('DEBUG', 'CurrencyUpdateCSV', primaryFileAsString); 
 
 	// create the CSV import job with a description that leverages the date
 	var job = nlapiCreateCSVImport();
@@ -17,7 +17,7 @@ function CurrencyUpdateCSV() {
 	nlapiLogExecution('DEBUG', 'CurrencyUpdateCSV', 'Success!');
 }
 function getExchange(symbol){
-	var URL_API = 'https://api.nbp.pl/api/exchangerates/rates/A/' //api to provider
+	var URL_API = 'https://api.nbp.pl/api/exchangerates/rates/A/'; //api to provider
 	var header={"User-Agent-x": "SuiteScript-Call"};
 	var response = nlapiRequestURL(URL_API+symbol, header, "POST");
 	response = response.getBody();
